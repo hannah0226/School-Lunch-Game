@@ -6,6 +6,9 @@ public class Result : MonoBehaviour
 {
     [SerializeField]GameObject goUI = null;
 
+    [SerializeField]GameObject GameClear = null;
+    [SerializeField]GameObject GameOver = null;
+
     [SerializeField]UnityEngine.UI.Text[] txtCount = null;
     [SerializeField]UnityEngine.UI.Text txtScore = null;
 
@@ -34,5 +37,10 @@ public class Result : MonoBehaviour
         }
 
         txtScore.text = string.Format("{0:#,##0}", t_currentScore);
+
+        if(t_currentScore >= 1000)
+            GameClear.SetActive(true);
+        else
+            GameOver.SetActive(true);
     }
 }
