@@ -1,0 +1,38 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Result : MonoBehaviour
+{
+    [SerializeField]GameObject goUI = null;
+
+    [SerializeField]UnityEngine.UI.Text[] txtCount = null;
+    [SerializeField]UnityEngine.UI.Text txtScore = null;
+
+    ScoreManager theScore;
+    EffectManager theEffect;
+
+    void Start()
+    {
+        theScore = FindObjectOfType<ScoreManager>();
+        theEffect = FindObjectOfType<EffectManager>();
+    }
+
+    public void ShowResult()
+    {
+        goUI.SetActive(true);
+        for(int i = 0; i < txtCount.Length; i++)
+            txtCount[i].text = "0";
+        txtScore.text = "0";
+
+        int[] t_judgement = theEffect.GetJudgementRecord();
+        int t_currentScore = theScore.GetCurrentScore();
+
+        for(int i = 0; i < txtCount.Length; i++)
+        {
+            txtCount[i].text = string.Format("{0:#,##0}", t_judgement[i]);
+        }
+
+        txtScore.text = string.Format("{0:#,##0}", t_currentScore);
+    }
+}
