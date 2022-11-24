@@ -31,7 +31,7 @@ public class NoteManeger : MonoBehaviour
     {
         currentTime += Time.deltaTime;
         //일정 시간마다 학생 생성 함수
-        if(StudentNum <= 97)
+        if(StudentNum <= 82)
         {
             if(currentTime >= 140d/bpm)
             {
