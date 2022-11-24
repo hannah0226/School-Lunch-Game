@@ -48,21 +48,18 @@ public class NoteX : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
             {
                 theEffect.JudgementEffect(0);
                 theScoreManager.IncreaseScore(0);
-                Destroy(gameObject);
                 theNoteManager.ChangeStudentXHappy(PositionX);
             }
             else if(CoolX1 <= PositionX && PositionX <= CoolX2)
             {
                 theEffect.JudgementEffect(1);
                 theScoreManager.IncreaseScore(1);
-                Destroy(gameObject);
                 theNoteManager.ChangeStudentXHappy(PositionX);
             }
             else if(GoodX1 <= PositionX && PositionX <= GoodX2)
             {
                 theEffect.JudgementEffect(2);
                 theScoreManager.IncreaseScore(2);
-                Destroy(gameObject);
                 theNoteManager.ChangeStudentXHappy(PositionX);
             }
             else if(BadX1 <= PositionX && PositionX <= BadX2)
@@ -70,7 +67,6 @@ public class NoteX : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
                 theEffect.JudgementEffect(3);
                 theScoreManager.IncreaseScore(3);
                 theComboManager.ResetCombo();
-                Destroy(gameObject);
                 theNoteManager.ChangeStudentXSad(PositionX);
             }
             else
@@ -78,9 +74,10 @@ public class NoteX : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
                 theEffect.JudgementEffect(4);
                 theScoreManager.IncreaseScore(4);
                 theComboManager.ResetCombo();
-                Destroy(gameObject);
                 theNoteManager.ChangeStudentXSad(PositionX);
             }
+            ObjectPool.instance.StudentXQueue.Enqueue(gameObject);
+            gameObject.SetActive(false);
         }
         
     }
@@ -91,7 +88,16 @@ public class NoteX : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
         theEffect.JudgementEffect(4);
         theScoreManager.IncreaseScore(4);
         theComboManager.ResetCombo();
-        Destroy(gameObject);
+        ObjectPool.instance.StudentXQueue.Enqueue(gameObject);
+        gameObject.SetActive(false);
         theNoteManager.ChangeStudentXSad(PositionX);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision) 
+    {
+        theEffect.JudgementEffect(4);
+        theComboManager.ResetCombo();
+        ObjectPool.instance.StudentXQueue.Enqueue(gameObject);
+        gameObject.SetActive(false);
     }
 }

@@ -37,21 +37,18 @@ public class NoteO : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDr
         {
             theEffect.JudgementEffect(0);
             theScoreManager.IncreaseScore(0);
-            Destroy(gameObject);
             theNoteManager.ChangeStudentOHappy(PositionX);
         }
         else if(CoolX1 <= PositionX && PositionX <= CoolX2)
         {
             theEffect.JudgementEffect(1);
             theScoreManager.IncreaseScore(1);
-            Destroy(gameObject);
             theNoteManager.ChangeStudentOHappy(PositionX);
         }
         else if(GoodX1 <= PositionX && PositionX <= GoodX2)
         {
             theEffect.JudgementEffect(2);
             theScoreManager.IncreaseScore(2);
-            Destroy(gameObject);
             theNoteManager.ChangeStudentOHappy(PositionX);
         }
         else if(BadX1 <= PositionX && PositionX <= BadX2)
@@ -59,7 +56,6 @@ public class NoteO : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDr
             theEffect.JudgementEffect(3);
             theScoreManager.IncreaseScore(3);
             theComboManager.ResetCombo();
-            Destroy(gameObject);
             theNoteManager.ChangeStudentOSad(PositionX);
         }
         else
@@ -67,9 +63,10 @@ public class NoteO : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDr
             theEffect.JudgementEffect(4);
             theScoreManager.IncreaseScore(4);
             theComboManager.ResetCombo();
-            Destroy(gameObject);
             theNoteManager.ChangeStudentOSad(PositionX);
         }
+        ObjectPool.instance.StudentOQueue.Enqueue(gameObject);
+        gameObject.SetActive(false);
     }
     
     public void OnBeginDrag(PointerEventData eventData)
@@ -90,10 +87,20 @@ public class NoteO : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDr
             theEffect.JudgementEffect(4);
             theScoreManager.IncreaseScore(4);
             theComboManager.ResetCombo();
-            Destroy(gameObject);
+            ObjectPool.instance.StudentOQueue.Enqueue(gameObject);
+            gameObject.SetActive(false);
             theNoteManager.ChangeStudentOSad(endTouchPosition);
         }
         
+    }
+    
+    //화면 밖 학생 파괴 함수
+    private void OnTriggerExit2D(Collider2D collision) 
+    {
+        theEffect.JudgementEffect(4);
+        theComboManager.ResetCombo();
+        ObjectPool.instance.StudentOQueue.Enqueue(gameObject);
+        gameObject.SetActive(false);
     }
     
 }
