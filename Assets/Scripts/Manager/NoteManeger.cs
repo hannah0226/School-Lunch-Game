@@ -29,7 +29,7 @@ public class NoteManeger : MonoBehaviour
     {
         currentTime += Time.deltaTime;
         //일정 시간마다 학생 생성 함수
-        if(StudentNum <= 82)
+        if(StudentNum <= 81)
         {
             if(currentTime >= 140d/bpm)
             {
@@ -47,7 +47,6 @@ public class NoteManeger : MonoBehaviour
                         GameObject StudentX = ObjectPool.instance.StudentXQueue.Dequeue();
                         StudentX.transform.localPosition = tfNoteAppear;
                         StudentX.SetActive(true);
-
                     }                   
                 }                                                                                
                 currentTime -= 140d / bpm;
