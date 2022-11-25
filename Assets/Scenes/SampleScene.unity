@@ -701,7 +701,7 @@ RectTransform:
   m_GameObject: {fileID: 255161720}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1513392990}
@@ -709,8 +709,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 22.11}
-  m_SizeDelta: {x: 200, y: 256.78}
+  m_AnchoredPosition: {x: 0, y: 82.17}
+  m_SizeDelta: {x: 561, y: 630}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &255161722
 Canvas:
@@ -746,14 +746,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9179881, b: 0.6179246, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 00b372e3f6dd56042a92aed02dffff0a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2030,6 +2030,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1415959563}
+  - component: {fileID: 1415959564}
   m_Layer: 0
   m_Name: ObjectPool
   m_TagString: Untagged
@@ -2052,6 +2053,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1415959564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415959562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 808a80c9a11ebe04f9e7eb2bcdd6fab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectInfo:
+  - goPrefab: {fileID: 5239665152617728025, guid: 2ee4124f109894140bd8f3d9473f1652, type: 3}
+    count: 10
+    tfPoolParent: {fileID: 1741839346}
+  - goPrefab: {fileID: 5239665152617728025, guid: 23d6ad2d3047f5a48a1aa891fad66785, type: 3}
+    count: 10
+    tfPoolParent: {fileID: 1741839346}
+  - goPrefab: {fileID: 1302734432881816494, guid: 04318b9106ab7cd408bb88a6018de3b7, type: 3}
+    count: 5
+    tfPoolParent: {fileID: 1741839346}
+  - goPrefab: {fileID: 7043593464851096652, guid: 7a8d28e5147d88e40b82ef4da261dc30, type: 3}
+    count: 5
+    tfPoolParent: {fileID: 1741839346}
+  - goPrefab: {fileID: 2698233121812621351, guid: 608bb8fa0b892594ca70d7058d80fb51, type: 3}
+    count: 5
+    tfPoolParent: {fileID: 1741839346}
+  - goPrefab: {fileID: 67838940229768893, guid: 7c30411ab87ef6d418b8d52f812874e8, type: 3}
+    count: 5
+    tfPoolParent: {fileID: 1741839346}
 --- !u!1 &1424882736
 GameObject:
   m_ObjectHideFlags: 0
@@ -2337,9 +2369,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bpm: 140
-  tfNoteAppear: {x: -1400, y: 0, z: 0}
-  Note_O: {fileID: 5239665152617728025, guid: 2ee4124f109894140bd8f3d9473f1652, type: 3}
-  Note_X: {fileID: 5239665152617728025, guid: 23d6ad2d3047f5a48a1aa891fad66785, type: 3}
   StudentOHappy: {fileID: 1302734432881816494, guid: 04318b9106ab7cd408bb88a6018de3b7, type: 3}
   StudentOSad: {fileID: 7043593464851096652, guid: 7a8d28e5147d88e40b82ef4da261dc30, type: 3}
   StudentXHappy: {fileID: 2698233121812621351, guid: 608bb8fa0b892594ca70d7058d80fb51, type: 3}

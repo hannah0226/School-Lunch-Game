@@ -9,7 +9,7 @@ public class NoteManeger : MonoBehaviour
 
     int spawn_obj=0;
     int StudentNum = 0;
-    Vector3 tfNoteAppear = new Vector3(-1400,0,0);
+    Vector3 tfNoteAppear = new Vector3(-1400,35,0);
 
     EffectManager theEffect;
     ComboManager theComboManager;
@@ -39,7 +39,7 @@ public class NoteManeger : MonoBehaviour
                     if(spawn_obj == 1)                                                                   //랜덤수가 1이라면 식판 든 학생 생성
                     {
                         GameObject StudentO = ObjectPool.instance.StudentOQueue.Dequeue();
-                        StudentO.transform.localPosition = new Vector3(-1400, 0, 0);
+                        StudentO.transform.localPosition = tfNoteAppear;
                         StudentO.SetActive(true);
                     }                                                                   
                     else                                                                                  //랜덤수가 2라면 식판 들지 않은 학생 생성
@@ -59,7 +59,7 @@ public class NoteManeger : MonoBehaviour
     public void ChangeStudentOHappy(int x)
     {
         GameObject StudentOHappy = ObjectPool.instance.StudentOHappyQueue.Dequeue();
-        StudentOHappy.transform.localPosition = new Vector3(x, 0, 0);
+        StudentOHappy.transform.localPosition = new Vector3(x, 35, 0);
         StudentOHappy.SetActive(true);
         StartCoroutine(DelayTime(StudentOHappy));
         ObjectPool.instance.StudentOHappyQueue.Enqueue(StudentOHappy);
@@ -67,7 +67,7 @@ public class NoteManeger : MonoBehaviour
     public void ChangeStudentOSad(int x)
     {
         GameObject StudentOSad = ObjectPool.instance.StudentOSadQueue.Dequeue();
-        StudentOSad.transform.localPosition = new Vector3(x, 0, 0);
+        StudentOSad.transform.localPosition = new Vector3(x, 35, 0);
         StudentOSad.SetActive(true);
         StartCoroutine(DelayTime(StudentOSad));
         ObjectPool.instance.StudentOSadQueue.Enqueue(StudentOSad);
@@ -75,7 +75,7 @@ public class NoteManeger : MonoBehaviour
     public void ChangeStudentXHappy(int x)
     {
         GameObject StudentXHappy = ObjectPool.instance.StudentXHappyQueue.Dequeue();
-        StudentXHappy.transform.localPosition = new Vector3(x, 0, 0);
+        StudentXHappy.transform.localPosition = new Vector3(x, 35, 0);
         StudentXHappy.SetActive(true);
         StartCoroutine(DelayTime(StudentXHappy));
         ObjectPool.instance.StudentXHappyQueue.Enqueue(StudentXHappy);
@@ -83,7 +83,7 @@ public class NoteManeger : MonoBehaviour
     public void ChangeStudentXSad(int x)
     {
         GameObject StudentXSad = ObjectPool.instance.StudentXSadQueue.Dequeue();
-        StudentXSad.transform.localPosition = new Vector3(x, 0, 0);
+        StudentXSad.transform.localPosition = new Vector3(x, 35, 0);
         StudentXSad.SetActive(true);
         StartCoroutine(DelayTime(StudentXSad));
         ObjectPool.instance.StudentXSadQueue.Enqueue(StudentXSad);
