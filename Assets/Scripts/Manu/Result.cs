@@ -38,7 +38,7 @@ public class Result : MonoBehaviour
 
         txtScore.text = string.Format("{0:#,##0}", t_currentScore);
 
-        if(t_currentScore >= 1500)
+        if(t_currentScore >= 1000)
             GameClear.SetActive(true);
         else
             GameOver.SetActive(true);
