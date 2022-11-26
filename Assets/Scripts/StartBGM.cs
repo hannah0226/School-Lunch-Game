@@ -12,7 +12,6 @@ public class StartBGM : MonoBehaviour
     {
         myAudio = GetComponent<AudioSource>();
         theResult = FindObjectOfType<Result>();
-        Invoke("MusicStart",1);
     }
 
     void Update()
@@ -26,6 +25,8 @@ public class StartBGM : MonoBehaviour
             else
             {
                 theResult.ShowResult();  
+                GameManager.instance.isStartGame = false;
+                musicStart = false;
             }
         }
     }

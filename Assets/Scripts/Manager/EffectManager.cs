@@ -29,4 +29,13 @@ public class EffectManager : MonoBehaviour
     {
         return judgementRecord;
     }
+
+    public void Initialized()
+    {
+        judgementRecord[0] = 0;
+        judgementRecord[1] = 0;
+        judgementRecord[2] = 0;
+        judgementRecord[3] = 0;
+        judgementRecord[4] = 0;
+    }
 }

@@ -13,6 +13,7 @@ public class NoteManeger : MonoBehaviour
 
     EffectManager theEffect;
     ComboManager theComboManager;
+    StartBGM theStartBGM;
 
     public GameObject StudentOHappy;
     public GameObject StudentOSad;
@@ -23,36 +24,49 @@ public class NoteManeger : MonoBehaviour
     {
         theEffect = FindObjectOfType<EffectManager>();
         theComboManager = FindObjectOfType<ComboManager>();
+        theStartBGM = FindObjectOfType<StartBGM>();
     }
 
     void Update()
     {
-        currentTime += Time.deltaTime;
-        //일정 시간마다 학생 생성 함수
-        if(StudentNum <= 81)
+        if(GameManager.instance.isStartGame)
         {
-            if(currentTime >= 140d/bpm)
+            if(StudentNum == 0)
+                theStartBGM.Invoke("MusicStart",1);
+            if(StudentNum <= 83)
             {
-                if(StudentNum >= 2)
+                currentTime += Time.deltaTime;
+                if(currentTime >= 140d/bpm)
                 {
-                    spawn_obj = Random.Range(1,3);
-                    if(spawn_obj == 1)                                                                   //랜덤수가 1이라면 식판 든 학생 생성
+                    if(StudentNum >= 3)
                     {
-                        GameObject StudentO = ObjectPool.instance.StudentOQueue.Dequeue();
-                        StudentO.transform.localPosition = tfNoteAppear;
-                        StudentO.SetActive(true);
-                    }                                                                   
-                    else                                                                                  //랜덤수가 2라면 식판 들지 않은 학생 생성
-                    {
-                        GameObject StudentX = ObjectPool.instance.StudentXQueue.Dequeue();
-                        StudentX.transform.localPosition = tfNoteAppear;
-                        StudentX.SetActive(true);
-                    }                   
-                }                                                                                
-                currentTime -= 140d / bpm;
-                StudentNum++;
+                        spawn_obj = Random.Range(1,3);
+                        if(spawn_obj == 1)   //랜덤수가 1이라면 식판 든 학생 생성
+                        {
+                            GameObject StudentO = ObjectPool.instance.StudentOQueue.Dequeue();
+                            StudentO.transform.localPosition = tfNoteAppear;
+                            StudentO.SetActive(true);
+                        }                                                                   
+                        else   //랜덤수가 2라면 식판 들지 않은 학생 생성
+                        {
+                            GameObject StudentX = ObjectPool.instance.StudentXQueue.Dequeue();
+                            StudentX.transform.localPosition = tfNoteAppear;
+                            StudentX.SetActive(true);
+                        }                   
+                    }                                                                                
+                    currentTime -= 140d / bpm;
+                    StudentNum++;
+                }
             }
         }
+        
+    }
+
+    public void Initialized()
+    {
+        StudentNum = 0;
+        currentTime = 0d;
+        spawn_obj=0;
     }
 
     //학생 누르면 Happy/Sad로 바꾸는 함수들

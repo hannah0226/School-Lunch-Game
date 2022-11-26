@@ -5,7 +5,6 @@ using UnityEngine;
 public class Result : MonoBehaviour
 {
     [SerializeField]GameObject goUI = null;
-
     [SerializeField]GameObject GameClear = null;
     [SerializeField]GameObject GameOver = null;
 
@@ -42,5 +41,15 @@ public class Result : MonoBehaviour
             GameClear.SetActive(true);
         else
             GameOver.SetActive(true);
+    }
+
+    public void ButtonRestart()
+    {
+        Debug.Log("다시시작");
+        goUI.SetActive(false);
+        GameClear.SetActive(false);
+        GameOver.SetActive(false);
+        GameManager.instance.GameStart();
+        
     }
 }
