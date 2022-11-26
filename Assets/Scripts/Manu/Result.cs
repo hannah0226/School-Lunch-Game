@@ -45,11 +45,9 @@ public class Result : MonoBehaviour
 
     public void ButtonRestart()
     {
-        Debug.Log("다시시작");
         goUI.SetActive(false);
         GameClear.SetActive(false);
         GameOver.SetActive(false);
         GameManager.instance.GameStart();
-        
     }
 }
