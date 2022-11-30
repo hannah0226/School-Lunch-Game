@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public bool isStartGame = false;
+    public bool isStartTutorial = false;
 
     NoteManeger theNote;
     ComboManager theCombo;
@@ -14,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        isStartGame = true;
+        isStartTutorial = true;
         instance = this;
         theNote = FindObjectOfType<NoteManeger>();
         theCombo = FindObjectOfType<ComboManager>();
@@ -23,12 +24,16 @@ public class GameManager : MonoBehaviour
     }
 
     
-    public void GameStart()
+    public void GameReset()
     {
         theNote.Initialized();
         theCombo.ResetCombo();
         theScore.Initialized();
         theEffect.Initialized();
+        isStartTutorial = true;
+    }
+    public void GameStart()
+    {
         isStartGame = true;
     }
 }

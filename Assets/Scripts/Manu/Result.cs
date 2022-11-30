@@ -37,7 +37,7 @@ public class Result : MonoBehaviour
 
         txtScore.text = string.Format("{0:#,##0}", t_currentScore);
 
-        if(t_currentScore >= 1000)
+        if(t_currentScore >= 1500)
             GameClear.SetActive(true);
         else
             GameOver.SetActive(true);
@@ -48,6 +48,6 @@ public class Result : MonoBehaviour
         goUI.SetActive(false);
         GameClear.SetActive(false);
         GameOver.SetActive(false);
-        GameManager.instance.GameStart();
+        GameManager.instance.GameReset();
     }
 }
