@@ -15,14 +15,21 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         theCombo = FindObjectOfType<ComboManager>();
-        currentScore = 0;
-        txtScore.text = "0";
+        txtScore.gameObject.SetActive(false);
+        //currentScore = 0;
+        //txtScore.text = "0";
     }
 
     public void Initialized()
     {
         currentScore = 0;
         txtScore.text = "0";
+        txtScore.gameObject.SetActive(false);
+    }
+
+    public void ScoreShow()
+    {
+        txtScore.gameObject.SetActive(true);
     }
 
     public void IncreaseScore(int p_JudgementState)

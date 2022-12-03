@@ -35,5 +35,6 @@ public class GameManager : MonoBehaviour
     public void GameStart()
     {
         isStartGame = true;
+        theScore.ScoreShow();
     }
 }
