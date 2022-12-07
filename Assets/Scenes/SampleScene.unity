@@ -675,6 +675,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac05e534674f0e4eac1e08ffeb872c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effectSoundO: {fileID: 8300000, guid: 024c5fc0a33395b4297cdd9a321e38a9, type: 3}
+  effectSoundX: {fileID: 8300000, guid: c4fda72186f47c64585a2c496f3e52f9, type: 3}
 --- !u!1 &255161720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,7 +1049,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.5
-  m_Text: "\uADF8\uB7FC \uC2DC\uC791\uD574 \uBCFC\uAE4C\uC694?"
+  m_Text: "1500\uC810\uC744 \uB118\uC73C\uBA74 \uAC8C\uC784 \uD074\uB9AC\uC5B4!\n\uC900\uBE44\uAC00
+    \uB418\uBA74 \uC2DC\uC791\uD574\uBCF4\uC790!"
 --- !u!222 &426293643
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1229,7 +1232,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1.5
   m_Text: "\uC2DD\uD310\uC744 \uB4E0 \uD559\uC0DD\uC774 \uC624\uBA74 \n\uD559\uC0DD\uC744       
-    \uD574 \uBC25\uC744 \uC918\uC694!"
+    \uD574 \uBC25\uC744 \uC8FC\uC790!"
 --- !u!222 &434409687
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1346,6 +1349,7 @@ GameObject:
   m_Component:
   - component: {fileID: 507585441}
   - component: {fileID: 507585442}
+  - component: {fileID: 507585443}
   m_Layer: 5
   m_Name: Result
   m_TagString: Untagged
@@ -1396,6 +1400,102 @@ MonoBehaviour:
   - {fileID: 325536106}
   - {fileID: 1269746690}
   txtScore: {fileID: 1802841452}
+--- !u!82 &507585443
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507585440}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 578b14bf64e4fb04cbffa3a96b677eb4, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1674,7 +1774,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1.5
   m_Text: "\uC2DD\uD310\uC744 \uB4E4\uC9C0 \uC54A\uC740 \uD559\uC0DD\uC774 \uC624\uBA74\n\uD559\uC0DD\uC744
-    \uC624\uB978\uCABD\uC73C\uB85C              \uD574 \uB118\uACA8\uC918\uC694!"
+    \uC624\uB978\uCABD\uC73C\uB85C              \uD574 \uB118\uACA8\uC8FC\uC790!"
 --- !u!222 &610074777
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1721,8 +1821,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 740, y: -60.00003}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 700, y: -75}
+  m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &632965989
 MonoBehaviour:
@@ -1839,8 +1939,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 60
+    m_Font: {fileID: 12800000, guid: 21c45e61da958c843af512fa9378ea52, type: 3}
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
@@ -1851,7 +1951,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u25BC"
+  m_Text: Click!
 --- !u!222 &632965993
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2572,7 +2672,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uD074\uB9AD"
+  m_Text: "\uD130\uCE58"
 --- !u!222 &1011720384
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4211,8 +4311,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 739.94086, y: -59.99527}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 700, y: -75}
+  m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1950814327
 MonoBehaviour:
@@ -4329,8 +4429,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 60
+    m_Font: {fileID: 12800000, guid: 21c45e61da958c843af512fa9378ea52, type: 3}
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
@@ -4341,7 +4441,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u25BC"
+  m_Text: Click!
 --- !u!222 &1950814331
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4622,8 +4722,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 740, y: -60}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 700, y: -75}
+  m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2137892290
 MonoBehaviour:
@@ -4740,8 +4840,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 60
+    m_Font: {fileID: 12800000, guid: 21c45e61da958c843af512fa9378ea52, type: 3}
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
@@ -4752,7 +4852,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u25BC"
+  m_Text: Click!
 --- !u!222 &2137892294
 CanvasRenderer:
   m_ObjectHideFlags: 0

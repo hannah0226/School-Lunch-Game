@@ -14,6 +14,7 @@ public class NoteO : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDr
     ScoreManager theScoreManager;
     ComboManager theComboManager;
     NoteManeger theNoteManager;
+    StartBGM theStartBGM;
 
     void OnEnable()
     {
@@ -21,6 +22,7 @@ public class NoteO : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDr
         theScoreManager = FindObjectOfType<ScoreManager>();
         theComboManager = FindObjectOfType<ComboManager>();
         theNoteManager = FindObjectOfType<NoteManeger>();
+        theStartBGM = FindObjectOfType<StartBGM>();
     }
 
     void Update()
@@ -38,18 +40,21 @@ public class NoteO : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDr
             theEffect.JudgementEffect(0);
             theScoreManager.IncreaseScore(0);
             theNoteManager.ChangeStudentOHappy(PositionX);
+            theStartBGM.EffectSoundO();
         }
         else if(CoolX1 <= PositionX && PositionX <= CoolX2)
         {
             theEffect.JudgementEffect(1);
             theScoreManager.IncreaseScore(1);
             theNoteManager.ChangeStudentOHappy(PositionX);
+            theStartBGM.EffectSoundO();
         }
         else if(GoodX1 <= PositionX && PositionX <= GoodX2)
         {
             theEffect.JudgementEffect(2);
             theScoreManager.IncreaseScore(2);
             theNoteManager.ChangeStudentOHappy(PositionX);
+            theStartBGM.EffectSoundO();
         }
         else if(BadX1 <= PositionX && PositionX <= BadX2)
         {
@@ -57,6 +62,7 @@ public class NoteO : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDr
             theScoreManager.IncreaseScore(3);
             theComboManager.ResetCombo();
             theNoteManager.ChangeStudentOSad(PositionX);
+            theStartBGM.EffectSoundX();
         }
         else
         {
@@ -64,6 +70,7 @@ public class NoteO : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDr
             theScoreManager.IncreaseScore(4);
             theComboManager.ResetCombo();
             theNoteManager.ChangeStudentOSad(PositionX);
+            theStartBGM.EffectSoundX();
         }
         ObjectPool.instance.StudentOQueue.Enqueue(gameObject);
         gameObject.SetActive(false);
@@ -90,6 +97,7 @@ public class NoteO : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDr
             ObjectPool.instance.StudentOQueue.Enqueue(gameObject);
             gameObject.SetActive(false);
             theNoteManager.ChangeStudentOSad(endTouchPosition);
+            theStartBGM.EffectSoundX();
         }
         
     }

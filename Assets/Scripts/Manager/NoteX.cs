@@ -13,6 +13,8 @@ public class NoteX : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
     ScoreManager theScoreManager;
     ComboManager theComboManager;
     NoteManeger theNoteManager;
+    StartBGM theStartBGM;
+    
 
     void Start()
     {
@@ -20,6 +22,7 @@ public class NoteX : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
         theScoreManager = FindObjectOfType<ScoreManager>();
         theComboManager = FindObjectOfType<ComboManager>();
         theNoteManager = FindObjectOfType<NoteManeger>();
+        theStartBGM = FindObjectOfType<StartBGM>();
     }
 
     void Update()
@@ -49,18 +52,21 @@ public class NoteX : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
                 theEffect.JudgementEffect(0);
                 theScoreManager.IncreaseScore(0);
                 theNoteManager.ChangeStudentXHappy(PositionX);
+                theStartBGM.EffectSoundO();
             }
             else if(CoolX1 <= PositionX && PositionX <= CoolX2)
             {
                 theEffect.JudgementEffect(1);
                 theScoreManager.IncreaseScore(1);
                 theNoteManager.ChangeStudentXHappy(PositionX);
+                theStartBGM.EffectSoundO();
             }
             else if(GoodX1 <= PositionX && PositionX <= GoodX2)
             {
                 theEffect.JudgementEffect(2);
                 theScoreManager.IncreaseScore(2);
                 theNoteManager.ChangeStudentXHappy(PositionX);
+                theStartBGM.EffectSoundO();
             }
             else if(BadX1 <= PositionX && PositionX <= BadX2)
             {
@@ -68,6 +74,7 @@ public class NoteX : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
                 theScoreManager.IncreaseScore(3);
                 theComboManager.ResetCombo();
                 theNoteManager.ChangeStudentXSad(PositionX);
+                theStartBGM.EffectSoundX();
             }
             else
             {
@@ -75,6 +82,7 @@ public class NoteX : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
                 theScoreManager.IncreaseScore(4);
                 theComboManager.ResetCombo();
                 theNoteManager.ChangeStudentXSad(PositionX);
+                theStartBGM.EffectSoundX();
             }
             ObjectPool.instance.StudentXQueue.Enqueue(gameObject);
             gameObject.SetActive(false);
@@ -91,6 +99,7 @@ public class NoteX : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
         ObjectPool.instance.StudentXQueue.Enqueue(gameObject);
         gameObject.SetActive(false);
         theNoteManager.ChangeStudentXSad(PositionX);
+        theStartBGM.EffectSoundX();
     }
 
     private void OnTriggerExit2D(Collider2D collision) 

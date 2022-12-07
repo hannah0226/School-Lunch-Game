@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class StartBGM : MonoBehaviour
 {
     AudioSource myAudio;
     Result theResult;
     bool musicStart = false;
+    public AudioClip effectSoundO;
+    public AudioClip effectSoundX;
 
     private void Start()
     {
@@ -35,5 +38,15 @@ public class StartBGM : MonoBehaviour
     {
         myAudio.Play();
         musicStart = true;
+    }
+
+    public void EffectSoundO()
+    {
+        myAudio.PlayOneShot(effectSoundO);
+    }
+
+    public void EffectSoundX()
+    {
+        myAudio.PlayOneShot(effectSoundX);
     }
 }

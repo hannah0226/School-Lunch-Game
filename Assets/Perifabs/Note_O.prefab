@@ -65,6 +65,7 @@ MonoBehaviour:
   noteSpeed: 800
   startTouchPosition: 0
   endTouchPosition: 0
+  EffectSound: {fileID: 8300000, guid: 686a373ad741a174ea95f2c85e17508f, type: 3}
 --- !u!114 &5239665152617728031
 MonoBehaviour:
   m_ObjectHideFlags: 0

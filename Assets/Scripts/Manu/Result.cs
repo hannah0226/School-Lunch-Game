@@ -14,14 +14,18 @@ public class Result : MonoBehaviour
     ScoreManager theScore;
     EffectManager theEffect;
 
+    AudioSource EndingSound;
+
     void Start()
     {
         theScore = FindObjectOfType<ScoreManager>();
         theEffect = FindObjectOfType<EffectManager>();
+        EndingSound = GetComponent<AudioSource>();
     }
 
     public void ShowResult()
     {
+        EndingSound.Play();
         goUI.SetActive(true);
         for(int i = 0; i < txtCount.Length; i++)
             txtCount[i].text = "0";
