@@ -13,24 +13,24 @@ public class EffectManager : MonoBehaviour
     
     string hit = "Hit";
 
-    public void JudgementEffect(int p_num)
+    public void JudgementEffect(int p_num)//판정효과
     {
         judgementImage.sprite = judgementSprite[p_num];
-        judgementAnimator.SetTrigger(hit);
-        judgementRecord[p_num]++;                             //판정 기록
+        judgementAnimator.SetTrigger(hit); //판정 애니메이션 실행
+        judgementRecord[p_num]++;      //판정 기록
     }
 
-    public void MoveArmEffect()
+    public void MoveArmEffect()//학생 클릭하면 밥주는 애니메이션
     {
         MoveArmAnimator.SetTrigger(hit);
     }
 
-    public int[] GetJudgementRecord()
+    public int[] GetJudgementRecord()//판정기록 내보내기(결과창에서 사용)
     {
         return judgementRecord;
     }
 
-    public void Initialized()
+    public void Initialized()//판정기록 리셋
     {
         judgementRecord[0] = 0;
         judgementRecord[1] = 0;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//결과창
 public class Result : MonoBehaviour
 {
     [SerializeField]GameObject goUI = null;
@@ -23,7 +24,7 @@ public class Result : MonoBehaviour
         EndingSound = GetComponent<AudioSource>();
     }
 
-    public void ShowResult()
+    public void ShowResult()//결과창 보이도록
     {
         EndingSound.Play();
         goUI.SetActive(true);
@@ -47,7 +48,7 @@ public class Result : MonoBehaviour
             GameOver.SetActive(true);
     }
 
-    public void ButtonRestart()
+    public void ButtonRestart()//다시시작 버튼 눌렀을 때
     {
         goUI.SetActive(false);
         GameClear.SetActive(false);

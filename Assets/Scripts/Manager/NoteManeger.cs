@@ -29,14 +29,14 @@ public class NoteManeger : MonoBehaviour
 
     void Update()
     {
-        if(GameManager.instance.isStartGame)
+        if(GameManager.instance.isStartGame)//isStartGame이 true이면 게임 시작
         {
-            if(StudentNum == 0)
+            if(StudentNum == 0)//BGM시작
                 theStartBGM.Invoke("MusicStart",1);
-            if(StudentNum <= 83)
+            if(StudentNum <= 83)//학생 총 83명까지만 나오도록
             {
                 currentTime += Time.deltaTime;
-                if(currentTime >= 140d/bpm)
+                if(currentTime >= 140d/bpm)//140bpm에 맞춰 학생 출력
                 {
                     if(StudentNum >= 3)
                     {
@@ -62,7 +62,7 @@ public class NoteManeger : MonoBehaviour
         
     }
 
-    public void Initialized()
+    public void Initialized()//학생수,시간 모두 초기화(게임 다시시작할 때 사용)
     {
         StudentNum = 0;
         currentTime = 0d;
@@ -70,7 +70,7 @@ public class NoteManeger : MonoBehaviour
     }
 
     //학생 누르면 Happy/Sad로 바꾸는 함수들
-    public void ChangeStudentOHappy(int x)
+    public void ChangeStudentOHappy(int x)//식판 든 학생 행복
     {
         GameObject StudentOHappy = ObjectPool.instance.StudentOHappyQueue.Dequeue();
         StudentOHappy.transform.localPosition = new Vector3(x, 60, 0);
@@ -78,7 +78,7 @@ public class NoteManeger : MonoBehaviour
         StartCoroutine(DelayTime(StudentOHappy));
         ObjectPool.instance.StudentOHappyQueue.Enqueue(StudentOHappy);
     }
-    public void ChangeStudentOSad(int x)
+    public void ChangeStudentOSad(int x)//식판 든 학생 슬픔
     {
         GameObject StudentOSad = ObjectPool.instance.StudentOSadQueue.Dequeue();
         StudentOSad.transform.localPosition = new Vector3(x, 60, 0);
@@ -86,7 +86,7 @@ public class NoteManeger : MonoBehaviour
         StartCoroutine(DelayTime(StudentOSad));
         ObjectPool.instance.StudentOSadQueue.Enqueue(StudentOSad);
     }
-    public void ChangeStudentXHappy(int x)
+    public void ChangeStudentXHappy(int x)//식판 안든 학생 행복
     {
         GameObject StudentXHappy = ObjectPool.instance.StudentXHappyQueue.Dequeue();
         StudentXHappy.transform.localPosition = new Vector3(x, 60, 0);
@@ -94,7 +94,7 @@ public class NoteManeger : MonoBehaviour
         StartCoroutine(DelayTime(StudentXHappy));
         ObjectPool.instance.StudentXHappyQueue.Enqueue(StudentXHappy);
     }
-    public void ChangeStudentXSad(int x)
+    public void ChangeStudentXSad(int x)//식판 안든 학생 슬픔
     {
         GameObject StudentXSad = ObjectPool.instance.StudentXSadQueue.Dequeue();
         StudentXSad.transform.localPosition = new Vector3(x, 60, 0);
@@ -103,7 +103,7 @@ public class NoteManeger : MonoBehaviour
         ObjectPool.instance.StudentXSadQueue.Enqueue(StudentXSad);
     }
 
-    IEnumerator DelayTime(GameObject studentQueue)
+    IEnumerator DelayTime(GameObject studentQueue)//행복or슬픔으로 바꾼 학생들 0.5초 뒤 사라지게
     {
         yield return new WaitForSeconds(0.5f);
         studentQueue.SetActive(false);

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+//식판 안든 학생 관리 스크립트(프리펩)
 public class NoteX : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
     public float noteSpeed = 400;
@@ -27,7 +28,7 @@ public class NoteX : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
 
     void Update()
     {
-        transform.localPosition += Vector3.right * noteSpeed * Time.deltaTime;
+        transform.localPosition += Vector3.right * noteSpeed * Time.deltaTime; //학생 오른쪽으로 움직이기
     }
     
     public void OnBeginDrag(PointerEventData eventData)
@@ -40,7 +41,7 @@ public class NoteX : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
 
     }
     
-    public void OnEndDrag(PointerEventData eventData)
+    public void OnEndDrag(PointerEventData eventData)//학생을 스와이프 했을 때 구역에 따라 판정효과 출력
     {
         int PerfectX1=-50, PerfectX2=50, CoolX1=-100, CoolX2=100, GoodX1=-200, GoodX2=200, BadX1=-400, BadX2=400;
         int PositionX = Mathf.RoundToInt(transform.localPosition.x);
@@ -90,7 +91,7 @@ public class NoteX : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
         
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)//학생을 클릭하면 miss뜨도록(식판 안든 학생이기 때문)
     {
         int PositionX = Mathf.RoundToInt(transform.localPosition.x);
         theEffect.JudgementEffect(4);
@@ -102,7 +103,7 @@ public class NoteX : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
         theStartBGM.EffectSoundX();
     }
 
-    private void OnTriggerExit2D(Collider2D collision) 
+    private void OnTriggerExit2D(Collider2D collision) //화면 밖 학생 파괴
     {
         theEffect.JudgementEffect(4);
         theComboManager.ResetCombo();

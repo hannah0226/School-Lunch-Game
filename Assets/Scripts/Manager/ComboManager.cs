@@ -15,24 +15,24 @@ public class ComboManager : MonoBehaviour
         goComboImage.SetActive(false);
     }
 
-    public void IncreaseCombo(int p_num = 1)
+    public void IncreaseCombo(int p_num = 1) //콤보점수 올리기
     {
         currentCombo += p_num;
         txtCombo.text = string.Format("{0:#,##0}", currentCombo);
 
-        if(currentCombo > 2)
+        if(currentCombo > 2) //콤보점수가 2보다 크면 화면에 보이게
         {
             txtCombo.gameObject.SetActive(true);
             goComboImage.SetActive(true);
         }
     }
 
-    public int GetCurrentCombo()
+    public int GetCurrentCombo()//콤보점수 내보내기(점수판 표출할때 사용)
     {
         return currentCombo;
     }
 
-    public void ResetCombo()
+    public void ResetCombo()//콤보점수 리셋(게임 다시 시작할때 사용)
     {
         currentCombo = 0;
         txtCombo.text = "0";

@@ -16,23 +16,21 @@ public class ScoreManager : MonoBehaviour
     {
         theCombo = FindObjectOfType<ComboManager>();
         txtScore.gameObject.SetActive(false);
-        //currentScore = 0;
-        //txtScore.text = "0";
     }
 
-    public void Initialized()
+    public void Initialized()//점수 초기화(다시시작할 때 사용)
     {
         currentScore = 0;
         txtScore.text = "0";
         txtScore.gameObject.SetActive(false);
     }
 
-    public void ScoreShow()
+    public void ScoreShow()//점수 화면에 보이게
     {
         txtScore.gameObject.SetActive(true);
     }
 
-    public void IncreaseScore(int p_JudgementState)
+    public void IncreaseScore(int p_JudgementState)//점수 올리기
     {
         //콤보 증가
         theCombo.IncreaseCombo();
