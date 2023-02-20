@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ComboManager : MonoBehaviour
+public class SchoolLunch_ComboManager : MonoBehaviour
 {
     [SerializeField]GameObject goComboImage = null;
     [SerializeField]UnityEngine.UI.Text txtCombo = null;

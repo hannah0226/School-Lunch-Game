@@ -11,9 +11,9 @@ public class ObjectInfo
 }
 
 
-public class ObjectPool : MonoBehaviour
+public class SchoolLunch_ObjectPool : MonoBehaviour
 {
-    public static ObjectPool instance;
+    public static SchoolLunch_ObjectPool instance;
     [SerializeField]ObjectInfo[] objectInfo = null;
     public Queue<GameObject> StudentOQueue = new Queue<GameObject>();
     public Queue<GameObject> StudentXQueue = new Queue<GameObject>();

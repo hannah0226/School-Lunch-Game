@@ -2,25 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class SchoolLunch_GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    public static SchoolLunch_GameManager instance;
     public bool isStartGame = false;//게임시작 변수(상태확인)
     public bool isStartTutorial = false;//튜토리얼 변수(상태확인)
 
-    NoteManeger theNote;
-    ComboManager theCombo;
-    ScoreManager theScore;
-    EffectManager theEffect;
+    SchoolLunch_NoteManeger theNote;
+    SchoolLunch_ComboManager theCombo;
+    SchoolLunch_ScoreManager theScore;
+    SchoolLunch_EffectManager theEffect;
 
     void Start()
     {
         isStartTutorial = true;
         instance = this;
-        theNote = FindObjectOfType<NoteManeger>();
-        theCombo = FindObjectOfType<ComboManager>();
-        theScore = FindObjectOfType<ScoreManager>();
-        theEffect = FindObjectOfType<EffectManager>();
+        theNote = FindObjectOfType<SchoolLunch_NoteManeger>();
+        theCombo = FindObjectOfType<SchoolLunch_ComboManager>();
+        theScore = FindObjectOfType<SchoolLunch_ScoreManager>();
+        theEffect = FindObjectOfType<SchoolLunch_EffectManager>();
     }
 
     

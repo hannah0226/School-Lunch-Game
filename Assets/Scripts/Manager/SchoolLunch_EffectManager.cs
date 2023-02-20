@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectManager : MonoBehaviour
+public class SchoolLunch_EffectManager : MonoBehaviour
 {
     [SerializeField]Animator judgementAnimator = null;
     [SerializeField]Animator MoveArmAnimator = null;

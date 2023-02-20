@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class StartBGM : MonoBehaviour
+public class SchoolLunch_StartBGM : MonoBehaviour
 {
     AudioSource myAudio;
-    Result theResult;
+    SchoolLunch_Result theResult;
     bool musicStart = false;
     public AudioClip effectSoundO;
     public AudioClip effectSoundX;
@@ -14,7 +14,7 @@ public class StartBGM : MonoBehaviour
     private void Start()
     {
         myAudio = GetComponent<AudioSource>();
-        theResult = FindObjectOfType<Result>();
+        theResult = FindObjectOfType<SchoolLunch_Result>();
     }
 
     void Update()
@@ -28,7 +28,7 @@ public class StartBGM : MonoBehaviour
             else//노래 끝나면 결과창 보이도록
             {
                 theResult.ShowResult();  
-                GameManager.instance.isStartGame = false;
+                SchoolLunch_GameManager.instance.isStartGame = false;
                 musicStart = false;
             }
         }

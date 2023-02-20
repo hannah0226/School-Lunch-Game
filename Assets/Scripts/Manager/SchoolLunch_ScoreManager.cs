@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreManager : MonoBehaviour
+public class SchoolLunch_ScoreManager : MonoBehaviour
 {
     [SerializeField]UnityEngine.UI.Text txtScore = null;
     [SerializeField]int increaseScore = 10;
@@ -10,11 +10,11 @@ public class ScoreManager : MonoBehaviour
     [SerializeField]float[]weight = null;
     [SerializeField]int comboBonouseScore = 10;
 
-    ComboManager theCombo;
+    SchoolLunch_ComboManager theCombo;
 
     void Start()
     {
-        theCombo = FindObjectOfType<ComboManager>();
+        theCombo = FindObjectOfType<SchoolLunch_ComboManager>();
         txtScore.gameObject.SetActive(false);
     }
 

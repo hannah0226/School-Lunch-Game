@@ -5,24 +5,23 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 //식판 든 학생 관리 스크립트(프리펩)
-public class NoteO : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class SchoolLunch_NoteO : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public float noteSpeed = 400;
-    public int startTouchPosition;
     public int endTouchPosition;
-    EffectManager theEffect;
-    ScoreManager theScoreManager;
-    ComboManager theComboManager;
-    NoteManeger theNoteManager;
-    StartBGM theStartBGM;
+    SchoolLunch_EffectManager theEffect;
+    SchoolLunch_ScoreManager theScoreManager;
+    SchoolLunch_ComboManager theComboManager;
+    SchoolLunch_NoteManeger theNoteManager;
+    SchoolLunch_StartBGM theStartBGM;
 
     void OnEnable()
     {
-        theEffect = FindObjectOfType<EffectManager>();
-        theScoreManager = FindObjectOfType<ScoreManager>();
-        theComboManager = FindObjectOfType<ComboManager>();
-        theNoteManager = FindObjectOfType<NoteManeger>();
-        theStartBGM = FindObjectOfType<StartBGM>();
+        theEffect = FindObjectOfType<SchoolLunch_EffectManager>();
+        theScoreManager = FindObjectOfType<SchoolLunch_ScoreManager>();
+        theComboManager = FindObjectOfType<SchoolLunch_ComboManager>();
+        theNoteManager = FindObjectOfType<SchoolLunch_NoteManeger>();
+        theStartBGM = FindObjectOfType<SchoolLunch_StartBGM>();
     }
 
     void Update()
@@ -72,13 +71,13 @@ public class NoteO : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDr
             theNoteManager.ChangeStudentOSad(PositionX);
             theStartBGM.EffectSoundX();
         }
-        ObjectPool.instance.StudentOQueue.Enqueue(gameObject);
+        SchoolLunch_ObjectPool.instance.StudentOQueue.Enqueue(gameObject);
         gameObject.SetActive(false);
     }
     
     public void OnBeginDrag(PointerEventData eventData)
     {
-        startTouchPosition = Mathf.RoundToInt(transform.localPosition.x);
+        
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -89,25 +88,22 @@ public class NoteO : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDr
     public void OnEndDrag(PointerEventData eventData)  //스와이프하면 miss뜨도록(식판든 학생이기 때문)
     {
         endTouchPosition = Mathf.RoundToInt(transform.localPosition.x);
-        if(endTouchPosition >= startTouchPosition + 100)
-        {
-            theEffect.JudgementEffect(4);
-            theScoreManager.IncreaseScore(4);
-            theComboManager.ResetCombo();
-            ObjectPool.instance.StudentOQueue.Enqueue(gameObject);
-            gameObject.SetActive(false);
-            theNoteManager.ChangeStudentOSad(endTouchPosition);
-            theStartBGM.EffectSoundX();
-        }
-        
+        theEffect.JudgementEffect(4);
+        theScoreManager.IncreaseScore(4);
+        theComboManager.ResetCombo();
+        SchoolLunch_ObjectPool.instance.StudentOQueue.Enqueue(gameObject);
+        gameObject.SetActive(false);
+        theNoteManager.ChangeStudentOSad(endTouchPosition);
+        theStartBGM.EffectSoundX();
     }
     
     private void OnTriggerExit2D(Collider2D collision) //화면 밖 학생 파괴 함수
     {
         theEffect.JudgementEffect(4);
         theComboManager.ResetCombo();
-        ObjectPool.instance.StudentOQueue.Enqueue(gameObject);
+        SchoolLunch_ObjectPool.instance.StudentOQueue.Enqueue(gameObject);
         gameObject.SetActive(false);
+        theStartBGM.EffectSoundX();
     }
     
 }

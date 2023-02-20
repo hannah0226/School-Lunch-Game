@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //결과창
-public class Result : MonoBehaviour
+public class SchoolLunch_Result : MonoBehaviour
 {
     [SerializeField]GameObject goUI = null;
     [SerializeField]GameObject GameClear = null;
@@ -12,15 +12,15 @@ public class Result : MonoBehaviour
     [SerializeField]UnityEngine.UI.Text[] txtCount = null;
     [SerializeField]UnityEngine.UI.Text txtScore = null;
 
-    ScoreManager theScore;
-    EffectManager theEffect;
+    SchoolLunch_ScoreManager theScore;
+    SchoolLunch_EffectManager theEffect;
 
     AudioSource EndingSound;
 
     void Start()
     {
-        theScore = FindObjectOfType<ScoreManager>();
-        theEffect = FindObjectOfType<EffectManager>();
+        theScore = FindObjectOfType<SchoolLunch_ScoreManager>();
+        theEffect = FindObjectOfType<SchoolLunch_EffectManager>();
         EndingSound = GetComponent<AudioSource>();
     }
 
@@ -53,6 +53,6 @@ public class Result : MonoBehaviour
         goUI.SetActive(false);
         GameClear.SetActive(false);
         GameOver.SetActive(false);
-        GameManager.instance.GameReset();
+        SchoolLunch_GameManager.instance.GameReset();
     }
 }
